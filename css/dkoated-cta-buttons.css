@@ -5,10 +5,10 @@
 .dkoatedbutton:hover	{background-color:#111111;color:#FFFFFF;}
 .dkoatedbutton:active	{top:1px;-moz-box-shadow:0 1px 1px rgba(0,0,0,0.5);-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.5);}
 
-.large.dkoatedbutton span		{font-size:60%;font-weight:normal;}
-.normal.dkoatedbutton span		{font-size:70%;font-weight:normal;}
-.small.dkoatedbutton span		{font-size:80%;font-weight:normal;}
-.extrasmall.dkoatedbutton span	{font-size:90%;font-weight:normal;}
+.large.dkoatedbutton span		{font-size:60%;font-weight:normal;line-height:100%;}
+.normal.dkoatedbutton span		{font-size:70%;font-weight:normal;line-height:100%;}
+.small.dkoatedbutton span		{font-size:80%;font-weight:normal;line-height:100%;}
+.extrasmall.dkoatedbutton span	{font-size:90%;font-weight:normal;line-height:100%;}
 
 .large.dkoatedbutton,.large.dkoatedbutton:visited			{font-size:115%;line-height:100%;padding:8px 14px 9px;}
 .normal.dkoatedbutton,.normal.dkoatedbutton:visited			{font-size:100%;line-height:100%;text-shadow:0 -1px 1px rgba(0,0,0,0.25);}

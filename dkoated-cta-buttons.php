@@ -4,12 +4,12 @@
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
  * Author: David Klein
  * Author URI: http://DKOATED.com
- * Version: 1.0.0
- * Description: Add beautiful call to action buttons through shortcodes to your WordPress. Optionally change links to "nofollow" and changing button colors and styles is actually super simple!<br /><code>&#91;DKB url="http://dkoated.com" text="Your headline here" desc="Your subheadline here" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown" opennewwindow="yes|no" nofollow="yes|no"&#93;</code>.
+ * Version: 1.1.0
+ * Description: Add beautiful call to action buttons through shortcodes to your WordPress. Optionally change links to "nofollow" and changing button colors and styles is actually super simple!<br /><code>&#91;DKB url="http://dkoated.com" text="Your button headline" desc="Your button sub headline" title="Your SEO title for the link" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown" width="100" opennewwindow="yes|no" nofollow="yes|no"&#93;</code>.
  */
 
 if(!is_admin()) {
-	define('DKOATED_CTA_BUTTONS_VERSION', '1.0.0');
+	define('DKOATED_CTA_BUTTONS_VERSION', '1.1.0');
 
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 
@@ -24,12 +24,19 @@ if(!is_admin()) {
 			"url" => '',
 			"text" => '',
 			"desc" => '',
+			"title" => '',
 			"type" => '',
 			"color" => '',
+			"width" => '',
 			"opennewwindow" => '',
 			"nofollow" => ''
 		), $atts));
 
+		if ($url == ''){$url = get_bloginfo('url');}
+		if ($text == ''){$text = get_bloginfo('url');}
+		if ($desc == ''){$desc = '';}
+			elseif ($desc != ''){$desc = '<span><br /><em>' . $desc . '</em></span>';}
+		if ($title == ''){$title = $text;}
 		if ($type == '' OR $type == 'large'){$type = 'large';}
 			elseif ($type == 'normal'){$type = 'normal';}
 			elseif ($type == 'small'){$type = 'small';}
@@ -44,8 +51,8 @@ if(!is_admin()) {
 			elseif ($color == 'blue'){$color = 'blue ';}
 			elseif ($color == 'yellow'){$color = 'yellow ';}
 			elseif ($color == 'brown'){$color = 'brown ';}
-		if ($desc == ''){$desc = '';}
-			elseif ($desc != ''){$desc = '<span><br /><em>' . $desc . '</em></span>';}
+		if ($width == ''){$width = '';}
+			elseif ($width != ''){$width = 'style="width:' . $width . 'px !important;max-width:' . $width . 'px !important;"';}
 		if ($opennewwindow == 'yes'){$opennewwindow = ' target="_blank"';}
 			elseif ($opennewwindow == '' OR $opennewwindow == 'no'){$opennewwindow = '';}
 		if ($nofollow == 'yes'){$nofollow = ' rel="nofollow"';}
@@ -54,7 +61,7 @@ if(!is_admin()) {
 		/* @var string */
 		/* This is the output */
 		$var_sHTML = '';
-		$var_sHTML .= '<a class="' . $type . ' ' . $color . 'dkoatedbutton" ' . $styleadd . ' href="' . $url . '" title="' . $text . '" ' . $opennewwindow . ' ' . $nofollow .'>' . $text . $desc . '</a>';
+		$var_sHTML .= '<a class="' . $type . ' ' . $color . 'dkoatedbutton" ' . $width . ' href="' . $url . '" title="' . $title . '" ' . $opennewwindow . ' ' . $nofollow .'>' . $text . $desc . '</a>';
 		return $var_sHTML;
 	}
 
