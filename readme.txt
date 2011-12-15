@@ -63,4 +63,4 @@ Visit <a href="http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/" title="
 <strong>A:</strong> Head over to http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/ and leave some feedback. I'll try to help out as much as I can, alright? ;)
 
 == Upgrade Notice ==
-Just upgrade the plugin.
+Just upgrade your plugin.
