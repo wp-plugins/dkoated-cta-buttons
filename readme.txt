@@ -6,7 +6,7 @@ Requires at least: 2.9.2
 Tested up to: 3.3
 Stable tag: 1.1.1
 
-Add beautiful and SEO ready call to action buttons through shortcodes to your WordPress. Simple usage, no external resources, no javascript and no images necessary!
+Add beautiful and SEO-ready call to action buttons through shortcodes to your WordPress. No external resources, no javascript, no images!
 
 == Description ==
 Add beautiful and SEO ready call to action buttons through shortcodes to your WordPress. Simple usage, no external resources, no javascript and no images necessary! Just pure CSS!
