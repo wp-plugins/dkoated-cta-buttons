@@ -1,5 +1,5 @@
 === DKOATED CTA Buttons ===
-Contributors: David Klein
+Contributors: DKOATED, David Klein
 Donate link: http://DKOATED.com/donate
 Tags: call to action, download, buy, register, button, buttons, shortcode, shortcodes, css
 Requires at least: 2.9.2
@@ -12,6 +12,7 @@ Add beautiful and SEO-ready call to action buttons through shortcodes to your Wo
 Add beautiful and SEO ready call to action buttons through shortcodes to your WordPress. Simple usage, no external resources, no javascript and no images necessary! Just pure CSS!
 
 * Ten colors to choose from: Black, White, Grey, Red, Blue, Green, Yellow, Pink, Brown and Orange
+* Headline and optional sub-headline
 * No javascript, no external libraries needed (such as jQuery, Modernizr, etc.)
 * No images needed, just pure CSS
 * Search engine optimized buttons: Fully crawlable, W3C valid code, Nofollow or Follow links and link-titles
@@ -21,10 +22,10 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * Simple usage, but with optional advanced settings
 
 <strong>Simple Usage:</strong>
-<code>&#91;DKB url="http://dkoated.com/" text="Your headline here" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown"&#93;</code>.
+<code>&#91;DKB url="http://dkoated.com/" text="Your headline here" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown"&#93;</code>
 
 <strong>Advanced Usage:</strong>
-<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown" width="100" opennewwindow="yes|no" nofollow="yes|no"&#93;</code>.
+<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown" width="100" opennewwindow="yes|no" nofollow="yes|no"&#93;</code>
 
 <strong>Settings help:</strong>
 
@@ -42,12 +43,17 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 You can either use the WordPress built-in installer and upgrader or you can install the plugin manually.
 
 <strong>Automatic Installation:</strong>
+
 * Search for 'DKOATED CTA Buttons' through the built-in Plugin menu in WordPress
+
 * Click on 'Install', then click on 'Activate' (or 'Activate plugin')
 
 <strong>Manual Installation:</strong>
+
 * Download the plugin and extract the Zip archive locally
+
 * Upload the extracted folder 'dkoated-cta-buttons' to your '/wp-content/plugins/' directory
+
 * Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
@@ -73,30 +79,43 @@ Visit <a href="http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/" title="
 
 == Frequently Asked Questions ==
 <strong>How do I use the plugin?</strong>
+
 Easy: Just add the following code to either a post or page: <code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown" width="100" opennewwindow="yes|no" nofollow="yes|no"&#93;</code>. As you may see in the code, there are many options to choose from. Just remove the ones you don't want. All options you choose not to use, will default to their default settings.
 
 <strong>But do I need to add that WHOLE thing?</strong>
+
 No. Actually there are no required attribute fields for the shortcode. Theoretically, the minimum code you need to use is: <code>&#91;DKB&#93;</code>, but that wouldn't make a lot of sense would it? I highly recommend to at least use the "url" and "text"-attributes: <code>&#91;DKB url="http://dkoated.com/" text="Your headline here"&#93;</code>. Everything else, such as the attribute fields "title", "type", "color", "width", "opennewwindow" and "nofollow" are optional and if unspecified, these attribute fields will default to their default setting.
 
 <strong>What are the default settings?</strong>
+
 * "url" defaults to your WordPress homepage URL
+
 * "text" defaults to the "url" attribute
+
 * "desc" defaults to nothing, so a button without sub-headline will be rendered
+
 * "type" defaults to "normal"
+
 * "color" defaults to "black"
+
 * "opennewwindow" defaults to "no" (opens in the same browser window)
+
 * "nofollow" defaults to "no", meaning the link will be followed by search engines
 
 <strong>Can I use just some attribute fields?</strong>
+
 Yes. If you want to let's say only specify the "width" and "nofollow" attributes, you would use this code: <code>&#91;DKB url="http://dkoated.com/" text="Your headline here" width="200" nofollow="yes"&#93;</code>. All other unspecified attributes will default to their default settings.
 
 <strong>The buttons look all messed up! What's wrong?</strong>
+
 If you are using a webkit-based browser such as Safari or Chrome and you have the plugin WP-Minify installed, you have to explicitly exclude the file 'dkoated-cta-buttons.css' from minification within the WP-Minify options. The css file itself is already optimized and would not benefit from a minification anyway (perhaps by only a few bytes).
 
 <strong>What's up with the "size" attribute?</strong>
+
 Specify the exact width of the button in pixels. Just add a number (without 'px') and watch the button grow (or get smaller). Be cautious though, the specified size will, no matter what, be set and displayed. If you specify a longer text to be displayed within the button through either "text" or "desc", the text will be cut off if the width of the button is smaller.
 
 <strong>I am having massive problems here. Please help!</strong>
+
 Head over to http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/ and leave some feedback. I'll try to help out as much as I can, alright? ;)
 
 == Upgrade Notice ==
