@@ -4,7 +4,7 @@ Donate link: http://DKOATED.com/donate
 Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages
 Requires at least: 2.9.2
 Tested up to: 3.3
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 Add beautiful and SEO-ready call to action buttons through shortcodes to your WordPress. No external resources, no javascript, no images!
 
