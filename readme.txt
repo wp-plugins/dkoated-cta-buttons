@@ -61,6 +61,9 @@ You can either use the WordPress built-in installer and upgrader or you can inst
 Visit <a href="http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/" title="DKOATED CTA Buttons Plugin for WordPress">DKOATED CTA Buttons WordPress plugin page</a> for screenshots and working demos.
 
 == Changelog ==
+= 1.2.2 =
+* Admin panel works again
+
 = 1.2.1 =
 * Fixed naming error
 
