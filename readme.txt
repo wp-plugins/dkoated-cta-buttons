@@ -1,10 +1,10 @@
 === DKOATED CTA Buttons ===
 Contributors: DKOATED, David Klein
 Donate link: http://DKOATED.com/donate
-Tags: call to action, download, buy, register, button, buttons, shortcode, shortcodes, css
+Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages
 Requires at least: 2.9.2
 Tested up to: 3.3
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 
 Add beautiful and SEO-ready call to action buttons through shortcodes to your WordPress. No external resources, no javascript, no images!
 
@@ -20,12 +20,15 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * Possibility to manually override the width of the button
 * Open your links in a new window (or tab) or have them open links in the same browser window
 * Simple usage, but with optional advanced settings
+* NEW: Admin panel to set your own custom fallbacks. No need to specify all your buttons with the same attributes anymore!
+* NEW: Specify custom button colors in the admin panel and use them with the new attribute "custom" within the shortcode
 
 <strong>Simple Usage:</strong>
 <code>&#91;DKB url="http://dkoated.com/" text="Your headline here" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown"&#93;</code>
 
+
 <strong>Advanced Usage:</strong>
-<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown" width="100" opennewwindow="yes|no" nofollow="yes|no"&#93;</code>
+<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown" width="100" opennewwindow="yes|no" nofollow="yes|no" custom="yes|no"&#93;</code>
 
 <strong>Settings help:</strong>
 
@@ -38,28 +41,31 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * <strong>width=""</strong>: If set, renders the button with a specific width
 * <strong>opennewwindow=""</strong>: Forces the link to open in a new window or in the same window. Choose from either "yes" or "no"
 * <strong>nofollow=""</strong>: Forces search engines to either follow the link or to ignore the link, thus not visiting the links URL
+* <strong>custom=""</strong>: Forces the button to be rendered in the colors specified in the admin panel
 
 == Installation ==
 You can either use the WordPress built-in installer and upgrader or you can install the plugin manually.
 
 <strong>Automatic Installation:</strong>
 
-* Search for 'DKOATED CTA Buttons' through the built-in Plugin menu in WordPress
-
+* Search for 'DKOATED CTA Buttons' through the built-in Plugin menu in WordPress<br />
 * Click on 'Install', then click on 'Activate' (or 'Activate plugin')
 
 <strong>Manual Installation:</strong>
 
-* Download the plugin and extract the Zip archive locally
-
-* Upload the extracted folder 'dkoated-cta-buttons' to your '/wp-content/plugins/' directory
-
+* Download the plugin and extract the Zip archive locally<br />
+* Upload the extracted folder 'dkoated-cta-buttons' to your '/wp-content/plugins/' directory<br />
 * Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
 Visit <a href="http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/" title="DKOATED CTA Buttons Plugin for WordPress">DKOATED CTA Buttons WordPress plugin page</a> for screenshots and working demos.
 
 == Changelog ==
+= 1.2.0 =
+* New feature: Admin panel to set your own custom fallbacks (overriding default fallbacks for unspecified attributes)
+* New feature: Specify custom button colors in the admin panel and use them with the new attribute "custom" within the shortcode
+* Custom fallbacks always overrides default fallbacks
+
 = 1.1.1 =
 * Minified some more sourcecode for performance optimizations
 * Minified CSS for max. compatibility and performance optimization
@@ -88,19 +94,14 @@ No. Actually there are no required attribute fields for the shortcode. Theoretic
 
 <strong>What are the default settings?</strong>
 
-* "url" defaults to your WordPress homepage URL
-
-* "text" defaults to the "url" attribute
-
-* "desc" defaults to nothing, so a button without sub-headline will be rendered
-
-* "type" defaults to "normal"
-
-* "color" defaults to "black"
-
-* "opennewwindow" defaults to "no" (opens in the same browser window)
-
-* "nofollow" defaults to "no", meaning the link will be followed by search engines
+* "url" defaults to your WordPress homepage URL<br />
+* "text" defaults to the "url" attribute<br />
+* "desc" defaults to nothing, so a button without sub-headline will be rendered<br />
+* "type" defaults to "normal"<br />
+* "color" defaults to "black"<br />
+* "opennewwindow" defaults to "no" (opens in the same browser window)<br />
+* "nofollow" defaults to "no", meaning the link will be followed by search engines<br />
+* "custom" defaults to "no"m meaning no custom colors will be used to render the button<br />
 
 <strong>Can I use just some attribute fields?</strong>
 
