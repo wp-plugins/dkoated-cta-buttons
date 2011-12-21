@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin name: DKOATED Admin Demo
+ * Plugin name: DKOATED CTA Buttons
  * Description: Add beautiful and SEO ready call to action buttons through shortcodes to your WordPress. Simple usage, no external resources, no javascript and no images necessary! Just pure CSS!
  * Author: DKOATED, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.2.0
+ * Version: 1.2.1
  */
 
 add_action('admin_init','dkb_settings_init' );
@@ -200,7 +200,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
 
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.2.0');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.2.1');
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
