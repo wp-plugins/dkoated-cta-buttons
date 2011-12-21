@@ -29,7 +29,7 @@ function dkoated_cta_buttons_plugin_action_links($links,$file){
 		$this_plugin = plugin_basename(__FILE__);
 	}
 	if($file == $this_plugin){
-		$settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=/dkoated-cta-buttons/dkoated-cta-buttons-admin.php">Settings</a>';
+		$settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=/dkoated-cta-buttons/dkoated-cta-buttons.php">Settings</a>';
 		array_unshift($links,$settings_link);
 	}
 	return $links;
@@ -191,7 +191,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 						</table>
 					</div>
 				</div>
-				<p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" target="_blank">DKOATED CTA Buttons</a> plugin brought to you by <a href="https://plus.google.com/u/0/103198314695328331300" target="_blank">David Klein</a> from <a href="http://dkoated.com" target="_blank">DKOATED.com</a>.</p>
+				<p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" target="_blank">DKOATED CTA Buttons</a> plugin brought to you by <a href="https://plus.google.com/u/0/103198314695328331300" target="_blank">David Klein</a> from <a href="http://dkoated.com" target="_blank">DKOATED.com</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UR3YE88FGAU88" target="_blank">Donate me coffee &hearts;</a>.</p>
 			</div>
 			<?php 
 		}
