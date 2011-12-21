@@ -1,4 +1,4 @@
-=== DKOATED CTA Buttons ===
+﻿=== DKOATED CTA Buttons ===
 Contributors: DKOATED, David Klein
 Donate link: http://DKOATED.com/donate
 Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages
