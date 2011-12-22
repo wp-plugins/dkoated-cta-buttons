@@ -302,19 +302,16 @@ if(!is_admin()){
 		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'no'){$custom = '<style>.hex' . substr($color,1) . '.dkoatedbutton,.hex' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.hex' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'hex' . substr($color,1);}
 		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
 		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
-
 		/* if($custom == ''){$custom = '';}
 		if($custom != '' && $custom != 'yes'){$custom = '';}
 		if($custom == 'no'){$custom = '';} */
 		if($custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
-
 		/* @var string */
 		/* This is the output */
 		$var_sHTML = '';
 		$var_sHTML .= '' . $custom . '<a class="' . $type . ' ' . $color . ' dkoatedbutton" ' . $width . ' href="' . $url . '" title="' . $title . '" ' . $opennewwindow . ' ' . $nofollow .'>' . $text . $desc . '</a>';
 		return $var_sHTML;
 	}
-
 	/* Add Shortcode to WordPress */
 	add_shortcode('DKB','sc_DKOATEDCTABUTTONS');
 }
