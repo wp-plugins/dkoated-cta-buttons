@@ -5,7 +5,7 @@
  * Author: DKOATED, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.3.1
+ * Version: 1.3.2
  */
 
 add_action('admin_init','dkb_settings_init' );
@@ -199,7 +199,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
 
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.3.1');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.3.2');
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
@@ -296,10 +296,10 @@ if(!is_admin()){
 		if($nofollow == 'no' && get_option('fallback_nofollow') == 'yes'){$nofollow = '';}
 		if($nofollow == 'no' && get_option('fallback_nofollow') == 'no'){$nofollow = '';}
 
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == ''){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == ''){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'no'){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'no'){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == ''){$custom = '<style>.hex' . substr($color,1) . '.dkoatedbutton,.hex' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.hex' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'hex' . substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == ''){$custom = '<style>.hex' . substr($color,1) . '.dkoatedbutton,.hex' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.hex' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'hex' . substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'no'){$custom = '<style>.hex' . substr($color,1) . '.dkoatedbutton,.hex' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.hex' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'hex' . substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'no'){$custom = '<style>.hex' . substr($color,1) . '.dkoatedbutton,.hex' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.hex' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'hex' . substr($color,1);}
 		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
 		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
 
