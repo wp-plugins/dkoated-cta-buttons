@@ -11,17 +11,17 @@ Add beautiful and SEO-ready call to action buttons through shortcodes to your Wo
 == Description ==
 Add beautiful and SEO ready call to action buttons through shortcodes to your WordPress. Simple usage, no external resources, no javascript and no images necessary! Just pure CSS!
 
-* Ten pre-defined colors to choose from: Black, White, Grey, Red, Blue, Green, Yellow, Pink, Brown and Orange
-* Use unlimited colors with the "color" attribute
-* Unlimited custom colors through the admin panel. Specify your own button color with the attribute "custom" in the admin panel
-* Headline and optional sub-headline
-* No javascript, no external libraries needed (such as jQuery, Modernizr, etc.)
-* No images needed, just pure CSS
-* Search engine optimized buttons: Fully crawlable, W3C valid code, Nofollow or Follow links and link-titles
-* Dynamically sets height and width according to your theme's link font and base size
-* Possibility to manually override the width of the button
-* Open your links in a new window (or tab) or have them open links in the same browser window
-* Simple usage, but with optional advanced settings
+* Ten pre-defined colors to choose from: Black, White, Grey, Red, Blue, Green, Yellow, Pink, Brown and Orange.
+* Use unlimited colors with the "color" attribute.
+* Unlimited custom colors through the admin panel. Specify your own button color with the attribute "custom" in the admin panel.
+* Headline and optional sub-headline.
+* No javascript, no external libraries needed (such as jQuery, Modernizr, etc.).
+* No images needed, just pure CSS.
+* Search engine optimized buttons: Fully crawlable, W3C valid code, Nofollow or Follow links and link-titles.
+* Dynamically sets height and width according to your theme's link font and base size.
+* Possibility to manually override the width of the button.
+* Open your links in a new window (or tab) or have them open links in the same browser window.
+* Simple usage, but with optional advanced settings.
 * Admin panel to set your own custom fallbacks. No need to specify all your buttons with the same attributes anymore!
 
 = Simple Usage: =
