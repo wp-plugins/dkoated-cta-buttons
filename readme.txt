@@ -4,7 +4,7 @@ Donate link: http://DKOATED.com/donate
 Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages
 Requires at least: 2.9.2
 Tested up to: 3.3
-Stable tag: 1.2.3
+Stable tag: 1.3.1
 
 Add beautiful and SEO-ready call to action buttons through shortcodes to your WordPress. No external resources, no javascript, no images!
 
@@ -58,6 +58,10 @@ You can either use the WordPress built-in installer and upgrader or you can inst
 Visit [DKOATED CTA Buttons WordPress Plugin Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/) for screenshots and working demos.
 
 == Changelog ==
+= 1.3.1 =
+* Fixed bug with the "color" attribute, where specified colors were not showing
+* Fixed bug with the "color" and "custom" attribute, where specified overwrote each other
+
 = 1.3.0 =
 * Ability to use hex-colors (such as '#ff0066') through the attribute "color" within the shortcode
 * Fixed bug with the "custom" attribute, where custom colors were not overriding the attribute "color"

@@ -5,7 +5,7 @@
  * Author: DKOATED, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.3.0
+ * Version: 1.3.1
  */
 
 add_action('admin_init','dkb_settings_init' );
@@ -190,7 +190,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 						</table>
 					</div>
 				</div>
-				<p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" target="_blank">DKOATED CTA Buttons</a> plugin brought to you by <a href="https://plus.google.com/u/0/103198314695328331300" target="_blank">David Klein</a> from <a href="http://dkoated.com" target="_blank">DKOATED.com</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UR3YE88FGAU88" target="_blank">Donate me coffee <small>&hearts;</small></a>.</p>
+				<p><small><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" target="_blank">DKOATED CTA Buttons</a> plugin brought to you by <a href="https://plus.google.com/u/0/103198314695328331300" target="_blank">David Klein</a> from <a href="http://dkoated.com" target="_blank">DKOATED.com</a> | <a href="http://dkoated.com/donate/" target="_blank">Donate me coffee &hearts;</a>.</small></p>
 			</div>
 			<?php 
 		}
@@ -199,7 +199,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
 
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.3.0');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.3.1');
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
@@ -271,12 +271,6 @@ if(!is_admin()){
 		if($color == 'yellow' && get_option('fallback_color') == '' && $custom == ''){$color = 'yellow';}
 		if($color == 'brown' && get_option('fallback_color') != '' && $custom == ''){$color = 'brown';}
 		if($color == 'brown' && get_option('fallback_color') == '' && $custom == ''){$color = 'brown';}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == ''){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == ''){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'no'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'no'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
-		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
 
 		if($width == '' && get_option('fallback_width') == ''){$width = '';}
 		if($width == '' && get_option('fallback_width') != '' && is_numeric(get_option('fallback_width'))){$width = 'style="width:' . get_option('fallback_width') . 'px !important;max-width:' . get_option('fallback_width') . 'px !important;"';}
@@ -302,9 +296,16 @@ if(!is_admin()){
 		if($nofollow == 'no' && get_option('fallback_nofollow') == 'yes'){$nofollow = '';}
 		if($nofollow == 'no' && get_option('fallback_nofollow') == 'no'){$nofollow = '';}
 
-		if($custom == ''){$custom = '';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == ''){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == ''){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'no'){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'no'){$custom = '<style>.' . substr($color,1) . '.dkoatedbutton,.' . substr($color,1) . '.dkoatedbutton:visited{background-color:' . $color . ' !important;}.' . substr($color,1) . '.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = substr($color,1);}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
+
+		/* if($custom == ''){$custom = '';}
 		if($custom != '' && $custom != 'yes'){$custom = '';}
-		if($custom == 'no'){$custom = '';}
+		if($custom == 'no'){$custom = '';} */
 		if($custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
 
 		/* @var string */
