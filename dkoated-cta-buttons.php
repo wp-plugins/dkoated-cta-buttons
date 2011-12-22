@@ -5,7 +5,7 @@
  * Author: DKOATED, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.2.2
+ * Version: 1.3.0
  */
 
 add_action('admin_init','dkb_settings_init' );
@@ -63,7 +63,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 							<p>Standard Button (with Sub-Headline):<br />
 							<code>[DKB url="" text="" desc="" title="" type="" color="" width="" opennewwindow="" nofollow=""]</code></p>
 							<p>Standard Button (with custom colors):<br />
-							<code>[DKB url="" text="" title="" type="" color="" width="" opennewwindow="" nofollow="" custom="yes"]</code></p>
+							<code>[DKB url="" text="" title="" type="" width="" opennewwindow="" nofollow="" custom="yes"]</code></p>
 							<table class="form-table">
 								<tbody>
 									<tr valign="top">
@@ -99,7 +99,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 									<tr valign="top">
 										<th scope="row"><label for="fallback_color">Color</label></th>
 										<td><input name="fallback_color" type="text" id="fallback_color" value="<?php echo get_option('fallback_color'); ?>" class="regular-text code">
-										<br /><span class="description">The Color attribute is the color of the button. If unspecified, the attribute defaults to the black color.<br />Default fallback: <code>empty</code><br />Manual usage: <code>[DKB ... <strong>color="black|white|grey|red|green|blue|orange|yellow|pink|brown"</strong>]</code></span>
+										<br /><span class="description">The Color attribute is the color of the button. If unspecified, the attribute defaults to the black color.<br />Default fallback: <code>empty</code><br />Manual usage: <code>[DKB ... <strong>color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..."</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
@@ -129,12 +129,12 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 							<table class="form-table">
 								<tbody>
 									<tr valign="top">
-										<th scope="row"><label for="fallback_customvi">Custom Button Color: Standard Color</label></th>
+										<th scope="row"><label for="fallback_customvi">Custom Color: Button Color</label></th>
 										<td><input name="fallback_customvi" type="text" id="fallback_customvi" value="<?php echo get_option('fallback_customvi'); ?>" class="regular-text code">
-										<br /><span class="description">The Custom Standard Color is the default color of the button (unhovered) and is required to be set if the custom attribute is set to "yes". It's a standard hex color and requires the '#' sign in front of the 6 digit hex color.<br />Default fallback: <code>empty</code><br />Manual usage: Color needs to be specified here. For example: <code><strong>#ff0066</strong></code></span></td>
+										<br /><span class="description">The Custom Color is the default color of the button (unhovered) and is required to be set if the custom attribute is set to "yes". It's a standard hex color and requires the '#' sign in front of the 6 digit hex color.<br />Default fallback: <code>empty</code><br />Manual usage: Color needs to be specified here. For example: <code><strong>#ff0066</strong></code></span></td>
 									</tr>
 									<tr valign="top">
-										<th scope="row"><label for="fallback_customho">Custom Button Color: Hover Color</label></th>
+										<th scope="row"><label for="fallback_customho">Custom Color: Button Hover Color</label></th>
 										<td><input name="fallback_customho" type="text" id="fallback_customho" value="<?php echo get_option('fallback_customho'); ?>" class="regular-text code">
 										<br /><span class="description">The Custom Hover Color is the default color of the button when hovered and is required to be set if the custom attribute is set to "yes". It's a standard hex color and requires the '#' sign in front of the 6 digit hex color.<br />Default fallback: <code>empty</code><br />Manual usage: Color needs to be specified here.  For example: <code><strong>#ff0066</strong></code></span></td>
 									</tr>
@@ -152,14 +152,13 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 							</thead>
 							<tbody>
 								<tr>
-									<td><p><strong>Want to help make this plugin even more awesome?</strong> All donations are used to improve this plugin, so donate what you can and are willing to spend. Every penny counts and is highly apprechiated!</p>
+									<td><p><strong>Want to help make this plugin even more awesome?</strong> All donations are used to improve this plugin, so donate what you can and are willing to spend. Every penny counts and is highly appreciated!</p>
 									<p><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="UR3YE88FGAU88">
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Thank you for your donation!!!">
-<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1"><br>
-</form></p>
-									<p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" title="Rate Plugin 5 Stars on WordPress.org" rel="nofollow" target="_blank">And: Please rate the plugin 5 Stars on WordPress.org</a></p></td>
+									<input type="hidden" name="cmd" value="_s-xclick">
+									<input type="hidden" name="hosted_button_id" value="UR3YE88FGAU88">
+									<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Thank you for your donation!!!">
+									<img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1"><br /></form></p>
+									<p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" title="Rate Plugin 5 Stars on WordPress.org" rel="nofollow" target="_blank">Please rate the plugin 5 Stars on WordPress.org</a></p></td>
 								</tr>
 							</tbody>
 						</table>
@@ -191,7 +190,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 						</table>
 					</div>
 				</div>
-				<p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" target="_blank">DKOATED CTA Buttons</a> plugin brought to you by <a href="https://plus.google.com/u/0/103198314695328331300" target="_blank">David Klein</a> from <a href="http://dkoated.com" target="_blank">DKOATED.com</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UR3YE88FGAU88" target="_blank">Donate me coffee &hearts;</a>.</p>
+				<p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" target="_blank">DKOATED CTA Buttons</a> plugin brought to you by <a href="https://plus.google.com/u/0/103198314695328331300" target="_blank">David Klein</a> from <a href="http://dkoated.com" target="_blank">DKOATED.com</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UR3YE88FGAU88" target="_blank">Donate me coffee <small>&hearts;</small></a>.</p>
 			</div>
 			<?php 
 		}
@@ -200,7 +199,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
 
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.2.2');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.3.0');
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
@@ -247,20 +246,41 @@ if(!is_admin()){
 		if($type != '' && get_option('fallback_type') != ''){$type = $type;}
 
 		if($color == '' && get_option('fallback_color') == '' && $custom == ''){$color = 'black';}
-		if($color == '' && get_option('fallback_color') == '' && $custom == 'yes'){$color = 'custom';}
 		if($color == '' && get_option('fallback_color') == '' && $custom == 'no'){$color = 'black';}
+		if($color == '' && get_option('fallback_color') == '' && $custom == 'yes'){$color = 'custom';}
 		if($color == '' && get_option('fallback_color') != '' && $custom == ''){$color = get_option('fallback_color');}
-		if($color == '' && get_option('fallback_color') != '' && $custom == 'yes'){$color = get_option('fallback_color');}
 		if($color == '' && get_option('fallback_color') != '' && $custom == 'no'){$color = get_option('fallback_color');}
-		if($color != '' && get_option('fallback_color') != '' && $custom == ''){$color = $color;}
-		if($color != '' && get_option('fallback_color') != '' && $custom == 'yes'){$color = $color;}
-		if($color != '' && get_option('fallback_color') != '' && $custom == 'no'){$color = $color;}
+		if($color == '' && get_option('fallback_color') != '' && $custom == 'yes'){$color = 'custom';}
+		if($color == 'black' && get_option('fallback_color') != '' && $custom == ''){$color = 'black';}
+		if($color == 'black' && get_option('fallback_color') == '' && $custom == ''){$color = 'black';}
+		if($color == 'grey' && get_option('fallback_color') != '' && $custom == ''){$color = 'grey';}
+		if($color == 'grey' && get_option('fallback_color') == '' && $custom == ''){$color = 'grey';}
+		if($color == 'white' && get_option('fallback_color') != '' && $custom == ''){$color = 'white';}
+		if($color == 'white' && get_option('fallback_color') == '' && $custom == ''){$color = 'white';}
+		if($color == 'red' && get_option('fallback_color') != '' && $custom == ''){$color = 'red';}
+		if($color == 'red' && get_option('fallback_color') == '' && $custom == ''){$color = 'red';}
+		if($color == 'green' && get_option('fallback_color') != '' && $custom == ''){$color = 'green';}
+		if($color == 'green' && get_option('fallback_color') == '' && $custom == ''){$color = 'green';}
+		if($color == 'blue' && get_option('fallback_color') != '' && $custom == ''){$color = 'blue';}
+		if($color == 'blue' && get_option('fallback_color') == '' && $custom == ''){$color = 'blue';}
+		if($color == 'pink' && get_option('fallback_color') != '' && $custom == ''){$color = 'pink';}
+		if($color == 'pink' && get_option('fallback_color') == '' && $custom == ''){$color = 'pink';}
+		if($color == 'orange' && get_option('fallback_color') != '' && $custom == ''){$color = 'orange';}
+		if($color == 'orange' && get_option('fallback_color') == '' && $custom == ''){$color = 'orange';}
+		if($color == 'yellow' && get_option('fallback_color') != '' && $custom == ''){$color = 'yellow';}
+		if($color == 'yellow' && get_option('fallback_color') == '' && $custom == ''){$color = 'yellow';}
+		if($color == 'brown' && get_option('fallback_color') != '' && $custom == ''){$color = 'brown';}
+		if($color == 'brown' && get_option('fallback_color') == '' && $custom == ''){$color = 'brown';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == ''){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == ''){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'no'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'no'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') != '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
+		if(preg_match('/^#[a-f0-9]{6}$/i',$color) && get_option('fallback_color') == '' && $custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . $color . ' !important;}.custom.dkoatedbutton:hover{background-color:' . $color . ' !important;}</style>';$color = 'custom';}
 
-		if($width == ''){
-			if(get_option('fallback_width') == ''){$width = '';}
-			elseif(get_option('fallback_width') != '' && is_numeric(get_option('fallback_width'))){$width = 'style="width:' . get_option('fallback_width') . 'px !important;max-width:' . get_option('fallback_width') . 'px !important;"';}
-		}
-		elseif($width != '' && is_numeric($width)){$width = 'style="width:' . $width . 'px !important;max-width:' . $width . 'px !important;"';}
+		if($width == '' && get_option('fallback_width') == ''){$width = '';}
+		if($width == '' && get_option('fallback_width') != '' && is_numeric(get_option('fallback_width'))){$width = 'style="width:' . get_option('fallback_width') . 'px !important;max-width:' . get_option('fallback_width') . 'px !important;"';}
+		if($width != '' && is_numeric($width)){$width = 'style="width:' . $width . 'px !important;max-width:' . $width . 'px !important;"';}
 
 		if($opennewwindow == '' && get_option('fallback_opennewwindow') == ''){$opennewwindow = ' target="_blank"';}
 		if($opennewwindow == '' && get_option('fallback_opennewwindow') == 'yes'){$opennewwindow = ' target="_blank"';}
@@ -283,8 +303,9 @@ if(!is_admin()){
 		if($nofollow == 'no' && get_option('fallback_nofollow') == 'no'){$nofollow = '';}
 
 		if($custom == ''){$custom = '';}
-		if($custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
+		if($custom != '' && $custom != 'yes'){$custom = '';}
 		if($custom == 'no'){$custom = '';}
+		if($custom == 'yes'){$custom = '<style>.custom.dkoatedbutton,.custom.dkoatedbutton:visited{background-color:' . get_option('fallback_customvi') . ' !important;}.custom.dkoatedbutton:hover{background-color:' . get_option('fallback_customho') . ' !important;}</style>';}
 
 		/* @var string */
 		/* This is the output */
