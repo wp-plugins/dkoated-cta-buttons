@@ -5,7 +5,7 @@
  * Author: DKOATED, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.3.2
+ * Version: 1.3.3
  */
 
 add_action('admin_init','dkb_settings_init' );
@@ -199,7 +199,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
 
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.3.2');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.3.3');
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
@@ -314,5 +314,7 @@ if(!is_admin()){
 	}
 	/* Add Shortcode to WordPress */
 	add_shortcode('DKB','sc_DKOATEDCTABUTTONS');
+	add_filter('widget_text','shortcode_unautop');
+	add_filter('widget_text','do_shortcode');
 }
 ?>
