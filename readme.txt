@@ -56,7 +56,9 @@ You can either use the WordPress built-in installer and upgrader or you can inst
 * Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
-Visit [DKOATED CTA Buttons WordPress Plugin Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/) for screenshots and working demos.
+Please visit [DKOATED CTA Buttons WordPress Plugin Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/) for screenshots and working demos.
+
+1. Admin Panel
 
 == Changelog ==
 = 1.3.4 =
