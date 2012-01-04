@@ -38,6 +38,7 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * <strong>desc=""</strong>: If set, displays as the sub-headline of the button
 * <strong>title=""</strong>: If set, text displays as the hover popup and allows to include more keywords for search engine optimization
 * <strong>type=""</strong>: Renders the button in different sizes. Choose from either "extralarge", "large", "normal", "small" or "extrasmall".
+* <strong>style=""</strong>: Renders the button in different styles. Choose from either "normal", "gradient" or "stitched".
 * <strong>color=""</strong>: Renders the button in different colors. Choose from either "black", "white", "grey", "red, "blue", "green", "yellow", "pink", "brown" or "orange" or use your own hex-colors, such as "#ff0066" or "#000000".
 * <strong>width=""</strong>: If set, renders the button with a specific width
 * <strong>opennewwindow=""</strong>: Forces the link to open in a new window or in the same window. Choose from either "yes" or "no"
