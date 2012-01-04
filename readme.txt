@@ -4,7 +4,7 @@ Donate link: http://DKOATED.com/donate
 Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages, stitched, stitched-effect, gradient, gradient buttons, stitched buttons, custom colors, admin panel, ecommerce, shop, conversion
 Requires at least: 2.9.2
 Tested up to: 3.3
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 
 Add beautiful and SEO-ready call to action buttons through shortcodes to your WordPress. No external resources, no javascript, no images!
 
@@ -66,6 +66,9 @@ You can either use the WordPress built-in installer and upgrader or you can inst
 or visit [DKOATED CTA Buttons WordPress Plugin DEMO Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin-demo/) for a working live demo.
 
 == Changelog ==
+= 1.4.1 =
+* CSS bug fixed: Normal button styles are now working again!
+
 = 1.4.0 =
 * New button styles: Three different styles to choose from!
 * New button size: Extra Large!

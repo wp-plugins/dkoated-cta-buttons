@@ -5,7 +5,7 @@
  * Author: dkoated, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.4.0
+ * Version: 1.4.1
  */
 
 add_action('admin_init','dkb_settings_init');
@@ -267,7 +267,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
 
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.4.0');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.4.1');
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
@@ -413,4 +413,12 @@ if(!is_admin()){
 	}
 	add_shortcode('DKB','sc_DKOATEDCTABUTTONS');
 }
+function dkoated_donate($links,$file){
+	$plugin = plugin_basename(__FILE__);
+	if($file == $plugin){
+		return array_merge($links,array(sprintf('<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UR3YE88FGAU88" target="_blank" title="Please donate and buy me some coffee">Donate and buy me coffee</a>',$plugin,__('Donate'))));
+	}
+	return $links;
+}
+add_filter('plugin_row_meta','dkoated_donate',10,2);
 ?>
