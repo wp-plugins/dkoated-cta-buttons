@@ -1,10 +1,10 @@
 ﻿=== DKOATED CTA Buttons ===
-Contributors: DKOATED, David Klein
+Contributors: dkoated, David Klein
 Donate link: http://DKOATED.com/donate
-Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages
+Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages, stitched, stitched-effect, gradient, gradient buttons, stitched buttons, custom colors, admin panel, ecommerce, shop, conversion
 Requires at least: 2.9.2
 Tested up to: 3.3
-Stable tag: 1.3.4
+Stable tag: 1.4.2
 
 Add beautiful and SEO-ready call to action buttons through shortcodes to your WordPress. No external resources, no javascript, no images!
 
@@ -14,34 +14,40 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * Ten pre-defined colors to choose from: Black, White, Grey, Red, Blue, Green, Yellow, Pink, Brown and Orange.
 * Use unlimited colors with the "color" attribute.
 * Unlimited custom colors through the admin panel. Specify your own button color with the attribute "custom" in the admin panel.
+* Three different button styles! Normal, Gradient and Stitched!
 * Headline and optional sub-headline.
 * No javascript, no external libraries needed (such as jQuery, Modernizr, etc.).
 * No images needed, just pure CSS.
 * Search engine optimized buttons: Fully crawlable, W3C valid code, Nofollow or Follow links and link-titles.
 * Dynamically sets height and width according to your theme's link font and base size.
-* Possibility to manually override the width of the button.
+* Possibility to manually override the height and width of the button.
 * Open your links in a new window (or tab) or have them open links in the same browser window.
 * Simple usage, but with optional advanced settings.
 * Admin panel to set your own custom fallbacks with dropdowns and colorpicker. No need to specify all your buttons with the same attributes anymore!
 * Add the shortcode in posts, pages and widgets (through the text-widget)
 
 = Simple Usage: =
-<code>&#91;DKB url="http://dkoated.com/" text="Your headline here" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..."&#93;</code>
+<code>&#91;DKB url="http://dkoated.com/" text="Your headline here" type="extralarge|large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..."&#93;</code>
 
 = Advanced Usage: =
-<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..." width="100" opennewwindow="yes|no" nofollow="yes|no" custom="yes|no"&#93;</code>
+<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="extralarge|large|normal|small|extrasmall" style="normal|gradient|stitched" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..." height="100" width="100" opennewwindow="yes|no" nofollow="yes|no" custom="yes|no"&#93;</code>
 
 = Settings help: =
 * <strong>url=""</strong>: Requires a full link, including <em>http://</em> or <em>https://</em>
-* <strong>text=""</strong>: Displays as main text of the button
-* <strong>desc=""</strong>: If set, displays as the sub-headline of the button
-* <strong>title=""</strong>: If set, text displays as the hover popup and allows to include more keywords for search engine optimization
-* <strong>type=""</strong>: Renders the button in different sizes. Choose from either "large", "normal", "small" or "extrasmall".
-* <strong>color=""</strong>: Renders the button in different colors. Choose from either "black", "white", "grey", "red, "blue", "green", "yellow", "pink", "brown" or "orange" or use your own hex-colors, such as "#ff0066" or "#000000".
-* <strong>width=""</strong>: If set, renders the button with a specific width
-* <strong>opennewwindow=""</strong>: Forces the link to open in a new window or in the same window. Choose from either "yes" or "no"
+* <strong>text=""</strong>: Displays as the button main text
+* <strong>desc=""</strong>: Displays as the button sub-headline
+* <strong>title=""</strong>: Title sets the hover popup and allows to include more keywords for search engine optimization
+* <strong>type=""</strong>: Sets the button type (choose from extralarge, large, normal, small or extrasmall)
+* <strong>style=""</strong>: Sets the button style (choose from normal, gradient or stitched)
+* <strong>color=""</strong>: Sets the button color (options available: black, white, grey, red, blue, green, yellow, pink, brown, orange or use your own hex-color, such as #ff0066 or #000000)
+* <strong>width=""</strong>: Sets the width of the button (width in pixel, without "px")
+* <strong>height=""</strong>: Sets the height of the button (height in pixel, without "px")
+* <strong>opennewwindow=""</strong>: Opens the link in a new window or in the same window (choose either "yes" or "no")
 * <strong>nofollow=""</strong>: Forces search engines to either follow the link or to ignore the link, thus not visiting the links URL
-* <strong>custom=""</strong>: Forces the button to be rendered in the colors specified in the admin panel
+* <strong>custom=""</strong>: Forces the button to be rendered in the colors specified in the admin panel's custom colors
+
+= More information =
+Please visit [DKOATED CTA Buttons WordPress Plugin Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/) for more informationa and [DKOATED CTA Buttons WordPress Plugin Demo Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin-demo/) working demos.
 
 == Installation ==
 You can either use the WordPress built-in installer and upgrader or you can install the plugin manually.
@@ -56,9 +62,28 @@ You can either use the WordPress built-in installer and upgrader or you can inst
 * Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
-Visit [DKOATED CTA Buttons WordPress Plugin Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/) for screenshots and working demos.
+1. Extralarge buttons: Normal-style with sub-headlines
+2. Extralarge buttons: Normal-style without sub-headlines
+
+or visit [DKOATED CTA Buttons WordPress Plugin DEMO Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin-demo/) for a working live demo.
 
 == Changelog ==
+= 1.4.2 =
+* Minor performance increase through prepopulated default fallbacks for attributes type, style, color, opennewwindow and nofollow
+* Added option to manually set the height of the button
+* Validation checks for the attributes height and width (only numeric without 'px')
+* Added custom CSS styling in the admin panel
+* Changed the way additional overriding CSS is added to the shortcode
+* Changed the 'Spread the word' admin panel block with cool social media buttons and removed ghetto popup javascript code completely
+
+= 1.4.1 =
+* CSS bug fixed: Normal button styles are now working again!
+
+= 1.4.0 =
+* New button styles: Three different styles to choose from!
+* New button size: Extra Large!
+* Fixed some minor annoyances in the admin panel
+
 = 1.3.4 =
 * Fixed an error, where the button would not render in the text-widget
 * Cleaned up the admin panel with dropdowns for attributes
