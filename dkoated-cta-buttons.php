@@ -442,7 +442,7 @@ if(!is_admin()){
 function dkoated_donate($links,$file){
 	$plugin = plugin_basename(__FILE__);
 	if($file == $plugin){
-		return array_merge($links,array(sprintf('<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UR3YE88FGAU88" target="_blank" title="Please donate and buy me some coffee">Donate and buy me coffee</a>',$plugin,__('Donate'))));
+		return array_merge($links,array(sprintf('<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UR3YE88FGAU88" target="_blank" title="Please donate and buy me coffee">Donate and buy me coffee</a>',$plugin,__('Donate'))));
 	}
 	return $links;
 }

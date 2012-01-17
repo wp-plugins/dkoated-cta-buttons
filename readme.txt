@@ -14,7 +14,7 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * Ten pre-defined colors to choose from: Black, White, Grey, Red, Blue, Green, Yellow, Pink, Brown and Orange.
 * Use unlimited colors with the "color" attribute.
 * Unlimited custom colors through the admin panel. Specify your own button color with the attribute "custom" in the admin panel.
-* Three different button styles! "Normal", "Gradient" and "Stitched"!
+* Three different button styles! Normal, Gradient and Stitched!
 * Headline and optional sub-headline.
 * No javascript, no external libraries needed (such as jQuery, Modernizr, etc.).
 * No images needed, just pure CSS.
