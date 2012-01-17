@@ -5,7 +5,7 @@
  * Author: dkoated, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.4.1
+ * Version: 1.4.2
  */
 
 add_action('admin_init','dkb_settings_init');
@@ -17,7 +17,9 @@ function dkb_settings_init(){
 	register_setting('dkb_settings_options','fallback_type');
 	register_setting('dkb_settings_options','fallback_style');
 	register_setting('dkb_settings_options','fallback_color');
+	register_setting('dkb_settings_options','fallback_height');
 	register_setting('dkb_settings_options','fallback_width');
+	register_setting('dkb_settings_options','fallback_customcss');
 	register_setting('dkb_settings_options','fallback_opennewwindow');
 	register_setting('dkb_settings_options','fallback_nofollow');
 	register_setting('dkb_settings_options','fallback_customvi');
@@ -81,35 +83,35 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 							<p>The default fallback settings listed below determine the default fallback to use when the corresponding attribute is unspecified with the shortcode.</p>
 							<p>To get started just add one of the following codes to any post or page and fill in the attributed with your information.</p>
 							<p>Standard Button (without Sub-Headline):<br />
-							<code>[DKB url="" text="" title="" type="" style="" color="" width="" opennewwindow="" nofollow=""]</code></p>
+							<code>[DKB url="" text="" title="" type="" style="" color="" height="" width="" opennewwindow="" nofollow=""]</code></p>
 							<p>Standard Button (with Sub-Headline):<br />
-							<code>[DKB url="" text="" desc="" title="" type="" style="" color="" width="" opennewwindow="" nofollow=""]</code></p>
+							<code>[DKB url="" text="" desc="" title="" type="" style="" color="" height="" width="" opennewwindow="" nofollow=""]</code></p>
 							<p>Standard Button (with custom colors):<br />
-							<code>[DKB url="" text="" title="" type="" style="" width="" opennewwindow="" nofollow="" custom="yes"]</code></p>
+							<code>[DKB url="" text="" title="" type="" style="" height="" width="" opennewwindow="" nofollow="" custom="yes"]</code></p>
 							<table class="form-table">
 								<tbody>
 									<tr valign="top">
 										<th scope="row"><label for="fallback_url"><strong>URL</strong></label></th>
 										<td><input name="fallback_url" type="text" id="fallback_url" value="<?php echo get_option('fallback_url');?>" class="regular-text">
-										<br /><span class="description">The URL attribute is the link of the button. If unspecified, the attribute defaults to your homepage URL.<br />Default fallback: <code><?php echo get_bloginfo('wpurl') ?></code> | Manual usage: <code>[DKB <strong>url="<?php echo get_bloginfo('wpurl') ?>"</strong>]</code></span>
+										<br /><span class="description">The URL attribute is the link of the button. If unspecified, the attribute defaults to your homepage URL.<br />Default fallback: <code><?php echo get_bloginfo('wpurl') ?></code> | Usage: <code>[DKB <strong>url="<?php echo get_bloginfo('wpurl') ?>"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
 										<th scope="row"><label for="fallback_text"><strong>Text</strong></label></th>
 										<td><input name="fallback_text" type="text" id="fallback_text" value="<?php echo get_option('fallback_text');?>" class="regular-text">
-										<br /><span class="description">The Text attribute is the text of the button. If unspecified, the attribute defaults to whatever you chose in the URL attribute.<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>text="Your button text"</strong>]</code></span>
+										<br /><span class="description">The Text attribute is the text of the button. If unspecified, the attribute defaults to whatever you chose in the URL attribute.<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>text="Your button text"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
 										<th scope="row"><label for="fallback_desc"><strong>Desc</strong></label></th>
 										<td><input name="fallback_desc" type="text" id="fallback_desc" value="<?php echo get_option('fallback_desc');?>" class="regular-text">
-										<br /><span class="description">The Desc attribute is the text of the button's sub-headline. If unspecified, the attribute defaults nothing, thus a button with no sub-headline will be generated.<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>desc="Your sub-headline"</strong>]</code></span>
+										<br /><span class="description">The Desc attribute is the text of the button's sub-headline. If unspecified, the attribute defaults nothing, thus a button with no sub-headline will be generated.<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>desc="Your sub-headline"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
 										<th scope="row"><label for="fallback_title"><strong>Title</strong></label></th>
 										<td><input name="fallback_title" type="text" id="fallback_title" value="<?php echo get_option('fallback_title');?>" class="regular-text">
-										<br /><span class="description">The Title attribute is the link-title of the button's link. If unspecified, the attribute defaults to whatever you chose in the URL attribute.<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>title="Your SEO link title"</strong>]</code></span>
+										<br /><span class="description">The Title attribute is the link-title of the button's link. If unspecified, the attribute defaults to whatever you chose in the URL attribute.<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>title="Your SEO link title"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
@@ -122,7 +124,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 											<option value="small"<?php if(get_option('fallback_type') == 'small'){echo 'selected';}else{};?>>Small</option>
 											<option value="extrasmall"<?php if(get_option('fallback_type') == 'extrasmall'){echo 'selected';}else{};?>>Extra Small</option>
 										</select><br />
-										<br /><span class="description">The Type attribute is the size of the button. If unspecified, the attribute defaults to its standard normal size.<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>type="extralarge|large|normal|small|extrasmall"</strong>]</code></span>
+										<br /><span class="description">The Type attribute is the size of the button. If unspecified, the attribute defaults to its standard normal size.<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>type="extralarge|large|normal|small|extrasmall"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
@@ -133,19 +135,25 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 											<option value="gradient"<?php if(get_option('fallback_style') == 'gradient'){echo 'selected';}else{};?>>Gradient</option>
 											<option value="stitched"<?php if(get_option('fallback_style') == 'stitched'){echo 'selected';}else{};?>>Stitched</option>
 										</select><br />
-										<br /><span class="description">The Style attribute is the style of the button. If unspecified, the attribute defaults to its standard normal style.<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>style="normal|gradient|stitched"</strong>]</code></span>
+										<br /><span class="description">The Style attribute is the style of the button. If unspecified, the attribute defaults to its standard normal style.<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>style="normal|gradient|stitched"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
 										<th scope="row"><label for="fallback_color"><strong>Color</strong></label></th>
 										<td><input name="fallback_color" type="text" id="fallback_color" value="<?php echo get_option('fallback_color');?>" class="small-text code">
-										<br /><span class="description">The Color attribute is the color of the button. If unspecified, the attribute defaults to the black color.<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..."</strong>]</code></span>
+										<br /><span class="description">The Color attribute is the color of the button. If unspecified, the attribute defaults to the black color.<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..."</strong>]</code></span>
+										</td>
+									</tr>
+									<tr valign="top">
+										<th scope="row"><label for="fallback_width"><strong>Height</strong></label></th>
+										<td><input name="fallback_width" type="text" id="fallback_width" value="<?php echo get_option('fallback_height');?>" class="small-text code">
+										<br /><span class="description">The Height attribute is the height of the button. If unspecified, the attribute defaults to automatic and adapts to the button text and the sub-headline's text (if specified).<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>height="your size in pixel without <em>px</em>"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
 										<th scope="row"><label for="fallback_width"><strong>Width</strong></label></th>
 										<td><input name="fallback_width" type="text" id="fallback_width" value="<?php echo get_option('fallback_width');?>" class="small-text code">
-										<br /><span class="description">The Width attribute is the width of the button. If unspecified, the attribute defaults to automatic and adapts to either the button text or the sub-headline's text (whichever is longer).<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>width="your size in pixel without <em>px</em>"</strong>]</code></span>
+										<br /><span class="description">The Width attribute is the width of the button. If unspecified, the attribute defaults to automatic and adapts to either the button text or the sub-headline's text (whichever is longer).<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>width="your size in pixel without <em>px</em>"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
@@ -155,7 +163,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 											<option value="yes"<?php if(get_option('fallback_opennewwindow') == 'yes'){echo 'selected';}else{};?>>Yes</option>
 											<option value="no"<?php if(get_option('fallback_opennewwindow') == 'no'){echo 'selected';}else{};?>>No</option>
 										</select><br />
-										<br /><span class="description">The Opennewwindow attribute forces the link to either open in a new window or open the link in the same window. If unspecified, the attribute defaults to yes.<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>opennewwindow="yes|no"</strong>]</code></span>
+										<br /><span class="description">The Opennewwindow attribute forces the link to either open in a new window or open the link in the same window. If unspecified, the attribute defaults to yes.<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>opennewwindow="yes|no"</strong>]</code></span>
 										</td>
 									</tr>
 									<tr valign="top">
@@ -165,7 +173,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 											<option value="yes"<?php if(get_option('fallback_nofollow') == 'yes'){echo 'selected';}else{};?>>Yes</option>
 											<option value="no"<?php if(get_option('fallback_nofollow') == 'no'){echo 'selected';}else{};?>>No</option>
 										</select><br />
-										<br /><span class="description">The Nofollow attribute forces search engines to either follow or not follow the link for indexation. If unspecified, the attribute defaults to yes (search engine bots will not follow the link).<br />Default fallback: <code>empty</code> | Manual usage: <code>[DKB ... <strong>nofollow="yes|no"</strong>]</code></span>
+										<br /><span class="description">The Nofollow attribute forces search engines to either follow or not follow the link for indexation. If unspecified, the attribute defaults to yes (search engine bots will not follow the link).<br />Default fallback: <code>empty</code> | Usage: <code>[DKB ... <strong>nofollow="yes|no"</strong>]</code></span>
 										</td>
 									</tr>
 								</tbody>
@@ -181,13 +189,27 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 										<th scope="row"><label for="fallback_customvi"><strong>Custom Color</strong></label></th>
 										<td><input name="fallback_customvi" type="text" id="fallback_customvi" value="<?php echo get_option('fallback_customvi');?>" class="small-text code"><div id="fallback_customvi_select">.</div>
 										<script>jQuery(document).ready(function($){$('#fallback_customvi_select').farbtastic('#fallback_customvi');});</script>
-										<br /><span class="description">The Custom Color is the default color of the button (unhovered) and is required to be set if the custom attribute is set to "yes". It's a standard hex color and requires the '#' sign in front of the 6 digit hex color.<br />Default fallback: <code>empty</code> | Manual usage: Color needs to be specified here. For example: <code><strong>#ff0066</strong></code></span></td>
+										<br /><span class="description">The Custom Color is the default color of the button (unhovered) and is required to be set if the custom attribute is set to "yes". It's a standard hex color and requires the '#' sign in front of the 6 digit hex color.<br />Default fallback: <code>empty</code> | Usage: Color needs to be specified here. For example: <code><strong>#ff0066</strong></code></span></td>
 									</tr>
 									<tr valign="top">
 										<th scope="row"><label for="fallback_customho"><strong>Custom Hover Color</strong></label></th>
 										<td><input name="fallback_customho" type="text" id="fallback_customho" value="<?php echo get_option('fallback_customho');?>" class="small-text code"><div id="fallback_customho_select">.</div>
 										<script>jQuery(document).ready(function($){$('#fallback_customho_select').farbtastic('#fallback_customho');});</script>
-										<br /><span class="description">The Custom Hover Color is the default color of the button when hovered and is required to be set if the custom attribute is set to "yes". It's a standard hex color and requires the '#' sign in front of the 6 digit hex color.<br />Default fallback: <code>empty</code> | Manual usage: Color needs to be specified here. For example: <code><strong>#ff0066</strong></code></span></td>
+										<br /><span class="description">The Custom Hover Color is the default color of the button when hovered and is required to be set if the custom attribute is set to "yes". It's a standard hex color and requires the '#' sign in front of the 6 digit hex color.<br />Default fallback: <code>empty</code> | Usage: Color needs to be specified here. For example: <code><strong>#ff0066</strong></code></span></td>
+									</tr>
+								</tbody>
+							</table>
+							<p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php _e('Save Changes');?>"></p>
+							<p>&nbsp;</p>
+							<h3>Custom Stylesheet Settings</h3>
+							<p>The custom stylesheet settings are intended for advanced users with CSS knowledge. You may define whatever CSS code you see fit within the code. The CSS is added <code>&#60;a class="buttonclass colorclass buttonstyle" style="lorem ipsum;<strong>YOUR-CUSTOM-CSS-ADDED-HERE;</strong>" ...&#62;Button Text&#60;/a&#62;</code></p>
+							<table class="form-table">
+								<tbody>
+									<tr valign="top">
+										<th scope="row"><label for="fallback_customcss"><strong>Stylesheet</strong></label></th>
+										<td><input name="fallback_customcss" type="text" id="fallback_customcss" value="<?php echo get_option('fallback_customcss');?>" class="regular-text">
+										<br /><span class="description"><strong>IMPORTANT: The styles defined here will always be added to all buttons!</strong><br />Do not, I repeat, DO NOT prepend the complete CSS style, but rather only additional CSS attributes and values. Keep in mind to also append the important declaration followed by a semicolon: <code>!important;</code> after each css attribute and value.<br />Example: <code>line-height:1em <strong>!important;</strong>text-transform:uppercase <strong>!important;</strong>etc.</code></span>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -222,14 +244,12 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 							<tbody>
 								<tr>
 									<td><p><a href="http://wordpress.org/extend/plugins/dkoated-cta-buttons/" title="Please rate the plugin 5 stars on WordPress.org" rel="nofollow" target="_blank">Rate the plugin 5 stars on WordPress.org</a></p>
-									<p><a href="javascript:void(0);" onclick="PopupCenter('https://twitter.com/intent/tweet?text=Wow,+check+out+this+awesome+Call+to+Action+Buttons+WordPress+Plugin+from+@DKOATED!+http://dkoated.com/dkoated-cta-buttons-wordpress-plugin/','DKOATED TWEET',500,500);" title="Please tweet about the plugin on Twitter" rel="nofollow">Tweet about the plugin on Twitter</a></p>
-									<p><a href="javascript:void(0);" onclick="PopupCenter('http://www.facebook.com/sharer.php?u=http://dkoated.com/dkoated-cta-buttons-wordpress-plugin/&t=Wow, check out this awesome Call to Action Button WordPress Plugin from DKOATED!','DKOATED FACEBOOK RECOMMENDER',500,500);" title="Please recommend the plugin on Facebook" rel="nofollow">Recommend the plugin on Facebook</a></p>
-									<p><a href="javascript:void(0);" onclick="PopupCenter('https://m.google.com/app/plus/x/?v=compose&content=Wow, check out this awesome Call to Action Button WordPress Plugin from @DKOATED! http://dkoated.com/dkoated-cta-buttons-wordpress-plugin/','DKOATED GOOGLE+ RECOMMENDER',500,500);" title="Please recommend the plugin on Google+" rel="nofollow">Recommend the plugin on Google+</a></p>
-									<p><a href="javascript:void(0);" onclick="PopupCenter('https://plusone.google.com/_/+1/confirm?url=http://dkoated.com/dkoated-cta-buttons-wordpress-plugin/&title=DKOATED%20CTA%20Buttons%20WordPress%20Plugin','DKOATED GOOGLE+ +1',500,500);" title="Please +1 the plugin on Google+" rel="nofollow">+1 the plugin on Google+</a></p></td>
+									<p><a href="https://twitter.com/share" class="twitter-share-button" data-url="dkoated.com/dkoated-cta-buttons-wordpress-plugin/" data-text="ZOMG! Awesome CSS-only Call to Action Buttons for WordPress. Check it out! #WordPress #Plugins" data-via="DKOATED" data-related="DKOATED">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
+									<p><div id="fb-root"></div><script>(function(d,s,id){var js,fjs = d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;js = d.createElement(s);js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=276876738994781";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script><div class="fb-like" data-href="http://dkoated.com" data-send="false" data-layout="button_count" data-width="250" data-show-faces="false" data-action="recommend"></div></p>
+									<p><div class="g-plusone" data-href="http://dkoated.com"></div><script type="text/javascript">(function(){var po = document.createElement('script');po.type = 'text/javascript';po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);})();</script></p></td>
 								</tr>
 							</tbody>
 						</table>
-						<script>function PopupCenter(pageURL,title,w,h){var left = (screen.width/2)-(w/2);var top = (screen.height/2)-(h/2);var targetWin = window.open(pageURL,title,'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width='+w+',height='+h+',top='+top+',left='+left);}</script>
 						&nbsp;
 						<table class="widefat">
 							<thead>
@@ -265,13 +285,11 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 	}
 }
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
-
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.4.1');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.4.2');
 	$css_url = plugins_url(basename(dirname(__FILE__)) . '/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
-
 	/* @param $atts */
 	/* These are the attributes */
 	function sc_DKOATEDCTABUTTONS($atts){
@@ -280,12 +298,13 @@ if(!is_admin()){
 			"text" => '',
 			"desc" => '',
 			"title" => '',
-			"type" => '',
-			"style" => '',
-			"color" => '',
+			"type" => 'normal',
+			"style" => 'normal',
+			"color" => 'black',
+			"height" => '',
 			"width" => '',
-			"opennewwindow" => '',
-			"nofollow" => '',
+			"opennewwindow" => 'yes',
+			"nofollow" => 'yes',
 			"custom" => ''
 		),$atts));
 
@@ -352,9 +371,16 @@ if(!is_admin()){
 		if($color == 'brown' && get_option('fallback_color') != '' && $custom == ''){$color = 'brown';}
 		if($color == 'brown' && get_option('fallback_color') == '' && $custom == ''){$color = 'brown';}
 
+		if($height == '' && get_option('fallback_height') == ''){$height = '';}
+		if($height == '' && get_option('fallback_height') != '' && is_numeric(get_option('fallback_height'))){$height = 'height:' . get_option('fallback_height') . 'px !important;max-height:' . get_option('fallback_height') . 'px !important;vertical-align:middle;display:table-cell;';}
+		if($height != '' && is_numeric($height)){$height = 'height:' . $height . 'px !important;max-height:' . $height . 'px !important;vertical-align:middle;display:table-cell;';}
+
 		if($width == '' && get_option('fallback_width') == ''){$width = '';}
-		if($width == '' && get_option('fallback_width') != '' && is_numeric(get_option('fallback_width'))){$width = 'style="width:' . get_option('fallback_width') . 'px !important;max-width:' . get_option('fallback_width') . 'px !important;"';}
-		if($width != '' && is_numeric($width)){$width = 'style="width:' . $width . 'px !important;max-width:' . $width . 'px !important;"';}
+		if($width == '' && get_option('fallback_width') != '' && is_numeric(get_option('fallback_width'))){$width = 'width:' . get_option('fallback_width') . 'px !important;max-width:' . get_option('fallback_width') . 'px !important;';}
+		if($width != '' && is_numeric($width)){$width = 'width:' . $width . 'px !important;max-width:' . $width . 'px !important;';}
+		
+		if($customcss == ''){$customcss = '';}
+		if($customcss != ''){$customcss = get_option('fallback_customcss');}
 
 		if($opennewwindow == '' && get_option('fallback_opennewwindow') == ''){$opennewwindow = ' target="_blank"';}
 		if($opennewwindow == '' && get_option('fallback_opennewwindow') == 'yes'){$opennewwindow = ' target="_blank"';}
@@ -408,7 +434,7 @@ if(!is_admin()){
 		/* @var string */
 		/* This is the output */
 		$var_sHTML = '';
-		$var_sHTML .= '' . $custom . '<a class="' . $type . ' ' . $color . ' dkoatedbutton' . $style . '" ' . $width . ' href="' . $url . '" title="' . $title . '" ' . $opennewwindow . ' ' . $nofollow .'>' . $text . $desc . '</a>';
+		$var_sHTML .= '' . $custom . '<a class="' . $type . ' ' . $color . ' dkoatedbutton' . $style . '" style="' . $width . '' . $height . '' . $customcss .'" href="' . $url . '" title="' . $title . '" ' . $opennewwindow . ' ' . $nofollow .'>' . $text . $desc . '</a>';
 		return $var_sHTML;
 	}
 	add_shortcode('DKB','sc_DKOATEDCTABUTTONS');
