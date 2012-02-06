@@ -40,7 +40,7 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * <strong>type=""</strong>: Sets the button type (choose from extralarge, large, normal, small or extrasmall)
 * <strong>style=""</strong>: Sets the button style (choose from normal, gradient or stitched)
 * <strong>color=""</strong>: Sets the button color (options available: black, white, grey, red, blue, green, yellow, pink, brown, orange or use your own hex-color, such as #ff0080 or #000000)
-* <strong>textcolor=""</strong>: Sets the button's tect color (options available: use your own hex-color, such as #ff0080 or #000000)
+* <strong>textcolor=""</strong>: Sets the button's text color (options available: use your own hex-color, such as #ff0080 or #000000)
 * <strong>width=""</strong>: Sets the width of the button (width in pixel, without "px")
 * <strong>height=""</strong>: Sets the height of the button (height in pixel, without "px")
 * <strong>opennewwindow=""</strong>: Opens the link in a new window or in the same window (choose either "yes" or "no")
