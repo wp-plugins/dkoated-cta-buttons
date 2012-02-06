@@ -5,7 +5,7 @@
  * Author: dkoated, David Klein
  * Author URI: http://DKOATED.com
  * Plugin URI: http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/
- * Version: 1.4.3
+ * Version: 1.4.4
  */
 
 add_action('admin_init','dkb_settings_init');
@@ -22,6 +22,7 @@ function dkb_settings_init(){
 	register_setting('dkb_settings_options','fallback_customcss');
 	register_setting('dkb_settings_options','fallback_opennewwindow');
 	register_setting('dkb_settings_options','fallback_nofollow');
+	register_setting('dkb_settings_options','fallback_textcolor');
 	register_setting('dkb_settings_options','fallback_customvi');
 	register_setting('dkb_settings_options','fallback_customho');
 	register_setting('dkb_settings_options','fallback_donated');
@@ -84,6 +85,9 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 							<code>[DKB url="" text="" desc="" title="" type="" style="" color="" height="" width="" opennewwindow="" nofollow=""]</code></p>
 							<p>Standard Button (with custom colors):<br />
 							<code>[DKB url="" text="" title="" type="" style="" height="" width="" opennewwindow="" nofollow="" custom="yes"]</code></p>
+							<p>Standard Button (with custom text color):<br />
+							<code>[DKB url="" text="" title="" type="" style="" height="" width="" opennewwindow="" nofollow="" textcolor="#ff0080"]</code></p>
+							<style>.farbtastic,.farbtastic .wheel{display:inline-block !important;float:left !important;padding:0 20px 0 0;}</style>
 							<table class="form-table">
 								<tbody>
 									<tr valign="top">
@@ -178,7 +182,6 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 							<p>&nbsp;</p>
 							<h3><?php _e('Custom:');?> Color <?php _e('Settings');?></h3>
 							<p>The custom color settings listed below determine the normal, visited and hover colors to use for the buttons if the attribute custom is set to yes with the shortcode. The code to activate the custom colors is <code>[DKB ... <strong>custom="yes"</strong>]</code></p>
-							<style>.farbtastic,.farbtastic .wheel{display:inline-block !important;float:left !important;padding:0 20px 0 0;}</style>
 							<table class="form-table">
 								<tbody>
 									<tr valign="top">
@@ -299,7 +302,7 @@ if(!class_exists("dkoated_cta_buttons_plugin_adminmenu")){
 }
 $wpdpd = new dkoated_cta_buttons_plugin_adminmenu();
 if(!is_admin()){
-	define('DKOATED_CTA_BUTTONS_VERSION','1.4.3');
+	define('DKOATED_CTA_BUTTONS_VERSION','1.4.4');
 	$css_url = plugins_url(basename(dirname(__FILE__)).'/css/dkoated-cta-buttons.css');
 	wp_register_style('dkoated-cta-buttons',$css_url,array(),DKOATED_CTA_BUTTONS_VERSION,'screen');
 	wp_enqueue_style('dkoated-cta-buttons');
@@ -314,6 +317,7 @@ if(!is_admin()){
 			"type" => 'normal',
 			"style" => 'normal',
 			"color" => 'black',
+			"textcolor" => '',
 			"height" => '',
 			"width" => '',
 			"opennewwindow" => 'yes',
@@ -376,6 +380,9 @@ if(!is_admin()){
 		if($color == 'yellow' && get_option('fallback_color') == '' && $custom == ''){$color = 'yellow';}
 		if($color == 'brown' && get_option('fallback_color') != '' && $custom == ''){$color = 'brown';}
 		if($color == 'brown' && get_option('fallback_color') == '' && $custom == ''){$color = 'brown';}
+		if($textcolor == '' && get_option('fallback_textcolor') == ''){$textcolor = 'color:#000000;';}
+		if($textcolor != '' && get_option('fallback_textcolor') == ''){$textcolor = 'color:'.$textcolor.';';}
+		if($textcolor != '' && get_option('fallback_textcolor') != ''){$textcolor = 'color:'.$textcolor.';';}
 		if($height == '' && get_option('fallback_height') == ''){$height = '';}
 		if($height == '' && get_option('fallback_height') != '' && is_numeric(get_option('fallback_height'))){$height = 'height:'.get_option('fallback_height').'px !important;max-height:'.get_option('fallback_height').'px !important;vertical-align:middle;display:table-cell;';}
 		if($height != '' && is_numeric($height)){$height = 'height:'.$height.'px !important;max-height:'.$height.'px !important;vertical-align:middle;display:table-cell;';}
@@ -436,7 +443,7 @@ if(!is_admin()){
 		/* @var string */
 		/* This is the output */
 		$var_sHTML = '';
-		$var_sHTML .= $custom.$kakuni.'<a class="'.$type.' '.$color.' dkoatedbutton'.$style.'" style="'.$width.''.$height.''.$customcss .'" href="'.$url.'" title="'.$title.'" '.$opennewwindow.' '.$nofollow .'>'.$text.$desc.'</a>';
+		$var_sHTML .= $custom.$kakuni.'<a class="'.$type.' '.$color.' dkoatedbutton'.$style.'" style="'.$width.''.$height.''.$customcss .''.$textcolor.'" href="'.$url.'" title="'.$title.'" '.$opennewwindow.' '.$nofollow .'>'.$text.$desc.'</a>';
 		return $var_sHTML;
 	}
 	add_shortcode('DKB','sc_DKOATEDCTABUTTONS');

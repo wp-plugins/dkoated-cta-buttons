@@ -4,7 +4,7 @@ Donate link: http://DKOATED.com/donate
 Tags: call to action, call to action button, download, download button, buy, buy button, register, register button, button, buttons, shortcode, shortcodes, css, css button, cta, cta button, hyperlink, link, link button, post, posts, page, pages, stitched, stitched-effect, gradient, gradient buttons, stitched buttons, custom colors, admin panel, ecommerce, shop, conversion
 Requires at least: 2.9.2
 Tested up to: 3.3
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 
 Add beautiful and SEO-ready call to action buttons through shortcodes to your WordPress. No external resources, no javascript, no images!
 
@@ -27,10 +27,10 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * Add the shortcode in posts, pages and widgets (through the text-widget)
 
 = Simple Usage: =
-<code>&#91;DKB url="http://dkoated.com/" text="Your headline here" type="extralarge|large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..."&#93;</code>
+<code>&#91;DKB url="http://dkoated.com/" text="Your headline here" type="extralarge|large|normal|small|extrasmall" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0080|..."&#93;</code>
 
-= Advanced Usage: =
-<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="extralarge|large|normal|small|extrasmall" style="normal|gradient|stitched" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0066|..." height="100" width="100" opennewwindow="yes|no" nofollow="yes|no" custom="yes|no"&#93;</code>
+= Advanced Usage (all options): =
+<code>&#91;DKB url="http://dkoated.com/" text="Main Button Text" desc="Sub-headline of button" title="Link SEO title" type="extralarge|large|normal|small|extrasmall" style="normal|gradient|stitched" color="black|white|grey|red|green|blue|orange|yellow|pink|brown|#000000|#ff0080|..." textcolor="#000000|#ff0080|#ffffff|..." height="100" width="100" opennewwindow="yes|no" nofollow="yes|no" custom="yes|no"&#93;</code>
 
 = Settings help: =
 * <strong>url=""</strong>: Requires a full link, including <em>http://</em> or <em>https://</em>
@@ -39,7 +39,8 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * <strong>title=""</strong>: Title sets the hover popup and allows to include more keywords for search engine optimization
 * <strong>type=""</strong>: Sets the button type (choose from extralarge, large, normal, small or extrasmall)
 * <strong>style=""</strong>: Sets the button style (choose from normal, gradient or stitched)
-* <strong>color=""</strong>: Sets the button color (options available: black, white, grey, red, blue, green, yellow, pink, brown, orange or use your own hex-color, such as #ff0066 or #000000)
+* <strong>color=""</strong>: Sets the button color (options available: black, white, grey, red, blue, green, yellow, pink, brown, orange or use your own hex-color, such as #ff0080 or #000000)
+* <strong>textcolor=""</strong>: Sets the button's tect color (options available: use your own hex-color, such as #ff0080 or #000000)
 * <strong>width=""</strong>: Sets the width of the button (width in pixel, without "px")
 * <strong>height=""</strong>: Sets the height of the button (height in pixel, without "px")
 * <strong>opennewwindow=""</strong>: Opens the link in a new window or in the same window (choose either "yes" or "no")
@@ -68,6 +69,10 @@ You can either use the WordPress built-in installer and upgrader or you can inst
 or visit [DKOATED CTA Buttons WordPress Plugin DEMO Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin-demo/) for a working live demo.
 
 == Changelog ==
+= 1.4.4 =
+* Added custom text colors to shortcode through the use of the new attribute 'textcolor'
+* Usage: textcolor="#ff0080" (use hex-colors only)
+
 = 1.4.3 =
 * Reduced some unnecessary plugin code
 * Added a donators option to remove commented code
@@ -106,7 +111,7 @@ or visit [DKOATED CTA Buttons WordPress Plugin DEMO Page](http://DKOATED.com/dko
 * Fixed bug with the "color" and "custom" attribute, where specified overwrote each other
 
 = 1.3.0 =
-* Ability to use hex-colors (such as '#ff0066') through the attribute "color" within the shortcode
+* Ability to use hex-colors (such as '#ff0080') through the attribute "color" within the shortcode
 * Fixed bug with the "custom" attribute, where custom colors were not overriding the attribute "color"
 * Additional failsafe checks for attributes width, colors, custom colors and hex-values within the color attribute
 
