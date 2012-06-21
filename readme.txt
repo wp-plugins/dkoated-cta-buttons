@@ -48,7 +48,7 @@ Add beautiful and SEO ready call to action buttons through shortcodes to your Wo
 * <strong>custom=""</strong>: Forces the button to be rendered in the colors specified in the admin panel's custom colors
 
 = More information =
-Please visit [DKOATED CTA Buttons WordPress Plugin Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/) for more informationa and [DKOATED CTA Buttons WordPress Plugin Demo Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin-demo/) working demos.
+Please visit [DKOATED CTA Buttons WordPress Plugin Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin/) for more information and [DKOATED CTA Buttons WordPress Plugin Demo Page](http://DKOATED.com/dkoated-cta-buttons-wordpress-plugin-demo/) for a working demo.
 
 == Installation ==
 You can either use the WordPress built-in installer and upgrader or you can install the plugin manually.
